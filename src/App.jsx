@@ -1,39 +1,52 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import PostCard from "./components/postcard"; // Importing the PostCard component
 
 function App() {
-
-  const initialPosts = [
+  const posts = [
     {
       id: 1,
-      profileImage: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?cs=srgb&dl=pexels-pixabay-220453.jpg&fm=jpg',
-      username: 'alice',
-      content: 'This is my first post!',
-      isLiked: false,
+      profilePic: "https://randomuser.me/api/portraits/men/1.jpg",
+      username: "JohnDoe",
+      content: "Just finished reading a great book! 📖",
     },
     {
       id: 2,
-      profileImage: 'https://writestylesonline.com/wp-content/uploads/2016/08/Follow-These-Steps-for-a-Flawless-Professional-Profile-Picture.jpg',
-      username: 'bob',
-      content: 'Loving this social media app.',
-      isLiked: true,
+      profilePic: "https://randomuser.me/api/portraits/women/2.jpg",
+      username: "JaneSmith",
+      content: "Loving the new React update! 🚀",
     },
     {
       id: 3,
-      profileImage: 'https://png.pngtree.com/png-clipart/20230927/original/pngtree-man-avatar-image-for-profile-png-image_13001882.png',
-      username: 'charlie',
-      content: 'Just another day...',
-      isLiked: false,
+      profilePic: "https://randomuser.me/api/portraits/men/3.jpg",
+      username: "MichaelBrown",
+      content: "Had an amazing workout today! 💪",
+    },
+    {
+      id: 4,
+      profilePic: "https://randomuser.me/api/portraits/women/4.jpg",
+      username: "EmilyClark",
+      content: "Just cooked a delicious meal! 🍳",
     },
   ];
 
   return (
-    <>
-      
-    </>
-  )
+    <div className="p-8 flex flex-col items-center">
+      {/* Centered Heading */}
+      <h1 className="text-3xl font-bold text-center mb-6">🌍 Social Media Feed</h1>
+
+      {/* Grid Layout for Posts (2 per row) */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {posts.map((post) => (
+          <PostCard
+            key={post.id}
+            profilePic={post.profilePic}
+            username={post.username}
+            content={post.content}
+          />
+        ))}
+      </div>
+    </div>
+  );
 }
 
-export default App
+export default App;
